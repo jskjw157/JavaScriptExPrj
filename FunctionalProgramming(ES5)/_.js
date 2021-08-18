@@ -27,10 +27,22 @@ function _map(list, mapper) {
     return new_list;
 }
 
+function _is_object(obj) {
+    return typeof obj == 'object' && !!obj;
+  }
+  
+function _keys(obj) {
+    return _is_object(obj) ? Object.keys(obj) : [];
+}
+
+var _length = _get('length');
+
 //for (var i = 0; i < list.length; i++)부분과 list[i]부분의 중복을 제거 해주는 함수
 function _each(list, iter) {
-    for (var i = 0; i < list.length; i++) {
-        iter(list[i]);
+    var keys = _keys(list); // _keys함수를 이용해서 올바른 배열이나 빈 배열을 리턴
+
+    for (var i = 0; i <keys.length; i++) { // keys 변수에 올바른 배열이 할당되어서 length속성을 사용
+        iter(list[keys[i]]);
     }
     return list;
 }
