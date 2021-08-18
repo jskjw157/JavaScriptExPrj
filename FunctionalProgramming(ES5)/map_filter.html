@@ -593,7 +593,7 @@ function _keys(obj){
   return _is_object(obj) ? Object.keys(obj) : [];
 }
 
-// _keys함수 : null값이 에러가 안난다.
+// _keys함수 : null값이 대입되도 에러가 안남.
 console.log( _keys({ name: 'ID', age: 33 }) );
 console.log( _keys([1, 2, 3, 4]) );
 console.log( _keys(10) );
